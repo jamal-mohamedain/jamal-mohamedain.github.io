@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jamal Mohamedain — Mechanical & Mechatronics Engineer</title>
+<meta name="description" content="Portfolio of Jamal Mohamedain, Mechanical and Mechatronics Engineer (B.Eng., EIT). CATIA V5 design, FEA/CFD, robotics, automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f5f1; --paper:#ffffff; --ink:#15181d; --muted:#5b6370; --line:#dcdad3;
+    --accent:#1f4e8c; --accent-soft:#e6edf7; --tag:#efeee9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f1216; --paper:#161a20; --ink:#e8e6e1; --muted:#9aa3ae; --line:#2a3039;
+      --accent:#7fa8e0; --accent-soft:#1c2633; --tag:#1f242c; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  .mono{font-family:"IBM Plex Mono",monospace}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+  nav .brand{font-weight:700;color:var(--ink)}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px}
+  nav ul a{color:var(--muted)}
+  @media (max-width:640px){ nav ul{display:none} }
+
+  /* hero */
+  header.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+  @media (max-width:820px){ .hero-grid{grid-template-columns:1fr} }
+  .kicker{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:clamp(34px,5vw,52px);line-height:1.08;margin:12px 0 16px;letter-spacing:-.02em}
+  .lead{font-size:18px;color:var(--muted);max-width:56ch}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:20px 0 28px;font-size:14px;color:var(--muted)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-block;padding:11px 18px;border-radius:6px;font-weight:600;font-size:15px;border:1px solid var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.primary:hover{text-decoration:none;filter:brightness(1.1)}
+  .btn.ghost{color:var(--accent)}
+  .hero-photo{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--paper)}
+  .hero-photo img{display:block;width:100%;height:440px;object-fit:cover;object-position:60% 35%}
+  .hero-photo figcaption{font-size:13px;color:var(--muted);padding:10px 14px}
+
+  /* sections */
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:28px;margin:0 0 8px;letter-spacing:-.01em}
+  .sec-sub{color:var(--muted);margin:0 0 32px}
+
+  /* featured project */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:32px;background:var(--paper);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:28px}
+  @media (max-width:820px){ .feature{grid-template-columns:1fr} }
+  .feature img{width:100%;height:100%;min-height:320px;object-fit:cover;object-position:30% 30%;display:block}
+  .feature .body{padding:28px 28px 28px 0}
+  @media (max-width:820px){ .feature .body{padding:0 22px 24px} }
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+  .stat{background:var(--accent-soft);border-radius:8px;padding:10px 12px}
+  .stat b{display:block;font-size:20px;color:var(--accent)}
+  .stat span{font-size:12px;color:var(--muted)}
+
+  /* project grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    display:flex;flex-direction:column}
+  .card img{width:100%;height:190px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+  .card .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card h3,.feature h3{margin:0;font-size:18px}
+  .card p,.feature p{margin:0;color:var(--muted);font-size:15px}
+  .cat{font-size:12px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+  .tag{font-size:12px;background:var(--tag);border-radius:4px;padding:3px 8px;color:var(--muted)}
+  .wip{font-size:11px;background:#f3c64a;color:#3a2c00;border-radius:4px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+
+  .thumbs{display:flex;gap:8px;flex-wrap:wrap}
+  .thumbs a{display:block;width:72px;height:56px;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .thumbs img{width:100%;height:100%;object-fit:cover;display:block;border:0;min-height:0}
+  .card .thumbs{padding-top:4px}
+  .feature-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:-12px 0 28px}
+  @media (max-width:640px){ .feature-gallery{grid-template-columns:repeat(2,1fr)} }
+  .feature-gallery a{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .feature-gallery img{width:100%;height:150px;object-fit:cover;display:block}
+  .feature-gallery span{display:block;font-size:12px;color:var(--muted);padding:6px 10px;background:var(--paper)}
+
+  /* experience */
+  .job{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+  .job:first-of-type{border-top:0}
+  @media (max-width:640px){ .job{grid-template-columns:1fr;gap:6px} }
+  .job .when{font-size:14px;color:var(--muted)}
+  .job h3{margin:0 0 4px;font-size:18px}
+  .job .where{color:var(--muted);font-size:14px;margin-bottom:10px}
+  .job ul{margin:0;padding-left:18px;color:var(--muted)}
+  .job li{margin-bottom:6px}
+  .job b{color:var(--ink)}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+  .skill{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+  .skill h4{margin:0 0 8px;font-size:15px}
+  .skill p{margin:0;color:var(--muted);font-size:14px}
+
+  /* education + certs */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  @media (max-width:820px){ .two{grid-template-columns:1fr} }
+  .list{list-style:none;margin:0;padding:0}
+  .list li{padding:12px 0;border-top:1px solid var(--line)}
+  .list li:first-child{border-top:0}
+  .list b{display:block}
+  .list span{color:var(--muted);font-size:14px}
+
+  /* contact */
+  .contact{text-align:center;padding:72px 0}
+  .contact p{color:var(--muted);max-width:52ch;margin:0 auto 24px}
+  footer{padding:24px 0;text-align:center;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Jamal Mohamedain</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker mono">Mechanical &amp; Mechatronics Engineer · B.Eng., EIT</div>
+      <h1>I design it in CATIA, simulate it, then build it.</h1>
+      <p class="lead">Mechanical and Mechatronics Engineer with hands-on experience taking parts from CAD model to working prototype: surface design, FEA and CFD, control systems, and industrial automation.</p>
+      <div class="meta">
+        <span>📍 Cairo, Egypt · Relocating to France</span>
+        <span>🇫🇷 French citizen (EU work rights)</span>
+        <span>🗣 English · Arabic · French (learning)</span>
+      </div>
+      <div class="btns">
+        <a class="btn primary" href="CV_Jamal_Mohamedain_Ingenieur_Mecanique.pdf">Download CV</a>
+        <a class="btn ghost" href="mailto:jamal.mohamedain@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://github.com/jamal-mohamedain">GitHub</a>
+      </div>
+    </div>
+    <figure class="hero-photo" style="margin:0">
+      <img src="images/wall-climbing-robot.jpg" alt="Jamal Mohamedain presenting his wall-climbing robot graduation project">
+      <figcaption>Presenting my graduation project, a wall-climbing robot for silo inspection.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sec-sub">Designed, drawn and built from scratch, mostly on student budgets.</p>
+
+    <article class="feature">
+      <img src="images/wcr-cad.jpg" alt="Wall-climbing robot CATIA V5 render" style="object-fit:contain;background:#fff">
+      <div class="body">
+        <div class="cat mono">Graduation project · Sole designer</div>
+        <h3>Wall-Climbing Robot for Silo Inspection</h3>
+        <p style="margin-top:10px">Self-proposed project: a robot that sticks to vertical walls using fan-generated negative pressure. Modelled every part and the full assembly in CATIA V5, including a propeller built from a NACA 0015 profile, then simulated the airflow in Ansys Fluent.</p>
+        <div class="stats">
+          <div class="stat"><b>≈5 N</b><span>predicted thrust (CFD)</span></div>
+          <div class="stat"><b>500 g</b><span>robot mass</span></div>
+          <div class="stat"><b>£75</b><span>total budget</span></div>
+        </div>
+        <p>Traced an adhesion failure to air leaking through the ground clearance and fixed it with a compliant foam seal. When the printed propellers failed under load, I simulated a commercial fan in CFD and redesigned the housing around it.</p>
+        <div class="tags"><span class="tag">CATIA V5 GSD</span><span class="tag">Ansys Fluent</span><span class="tag">Laser cutting</span><span class="tag">3D printing</span><span class="tag">ESP32</span></div>
+      </div>
+    </article>
+    <div class="feature-gallery">
+      <a href="images/wcr-cad.jpg" target="_blank"><img src="images/wcr-cad.jpg" alt="CAD render"><span>CATIA V5 assembly</span></a>
+      <a href="images/wcr-fea.jpg" target="_blank"><img src="images/wcr-fea.jpg" alt="FEA"><span>Ansys FEA of the frame</span></a>
+      <a href="images/wcr-prototype.jpg" target="_blank"><img src="images/wcr-prototype.jpg" alt="Prototype"><span>Working prototype</span></a>
+      <a href="images/wcr-seal.jpg" target="_blank"><img src="images/wcr-seal.jpg" alt="Foam seal fix"><span>Foam seal fix for adhesion</span></a>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <img src="images/vtol.jpg" alt="VTOL drone airframe in CATIA V5" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Aerospace · Personal</div>
+          <h3>Surveillance VTOL Drone <span class="wip">In progress</span></h3>
+          <p>Airframe and fuselage surfacing in CATIA V5 Generative Shape Design, targeting an all-up mass of 750–850 g.</p>
+          <div class="tags"><span class="tag">CATIA V5 GSD</span><span class="tag">Aero surfacing</span><span class="tag">Mass budget</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/gantry.jpg" alt="3-axis gantry rig" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Control systems</div>
+          <h3>Seaport Crane Gantry System</h3>
+          <p>Designed and built a 3-axis Cartesian gantry from aluminium extrusion, encoded DC motors and an ESP32. Benchmarked five controllers (PID, Adaptive PID, Fuzzy-like PID, Self-Tuning Fuzzy, MFAC) via MATLAB over Wi-Fi; Adaptive PID tracked best.</p>
+          <div class="thumbs"><a href="images/gantry.jpg" target="_blank"><img src="images/gantry.jpg" alt=""></a><a href="images/gantry-2.jpg" target="_blank"><img src="images/gantry-2.jpg" alt=""></a><a href="images/gantry-3.jpg" target="_blank"><img src="images/gantry-3.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">CATIA V5</span><span class="tag">MATLAB</span><span class="tag">ESP32</span><span class="tag">Control</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/gripper.jpg" alt="Soft robotic gripper" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Soft robotics</div>
+          <h3>Soft Robotic Gripper for DOBOT</h3>
+          <p>Designed my own gripper and its mould in CATIA V5 instead of using the provided design, simulated finger bending in Ansys, cast it in silicone from a 3D-printed PLA mould, designed a custom ESP32 control PCB, and controlled it with PID and Adaptive PID.</p>
+          <div class="thumbs"><a href="images/gripper.jpg" target="_blank"><img src="images/gripper.jpg" alt=""></a><a href="images/gripper-2.jpg" target="_blank"><img src="images/gripper-2.jpg" alt=""></a><a href="images/gripper-3.jpg" target="_blank"><img src="images/gripper-3.jpg" alt=""></a><a href="images/gripper-4.jpg" target="_blank"><img src="images/gripper-4.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">CATIA V5</span><span class="tag">Mould design</span><span class="tag">Silicone casting</span><span class="tag">Ansys FEA</span><span class="tag">PCB design</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/plc.jpg" alt="PLC palletizing simulation in Factory IO" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Industrial automation</div>
+          <h3>PLC Colour-Sorting Packaging Line</h3>
+          <p>Automated colour-sorting packaging line on a Siemens PLC: colour sensors route blue and green lids and bases, then pushers and timers pair like-coloured parts into boxes. Programmed in Ladder (22 networks) in TIA Portal and simulated in Factory IO.</p>
+          <div class="thumbs"><a href="images/plc.jpg" target="_blank"><img src="images/plc.jpg" alt=""></a><a href="images/plc-2.jpg" target="_blank"><img src="images/plc-2.jpg" alt=""></a><a href="images/plc-3.jpg" target="_blank"><img src="images/plc-3.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">Siemens TIA Portal</span><span class="tag">Ladder</span><span class="tag">Factory IO</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/husky.jpg" alt="Husky UGV mobile robot" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Autonomous systems · Team lead</div>
+          <h3>Husky UGV Mobile Robot</h3>
+          <p>Led the team; designed the chassis in CATIA V5 to match the original dimensions with motor mounts and electronics access. Tested kinematics and PID speed control in Gazebo before assembly.</p>
+          <div class="thumbs"><a href="images/husky.jpg" target="_blank"><img src="images/husky.jpg" alt=""></a><a href="images/husky-2.jpg" target="_blank"><img src="images/husky-2.jpg" alt=""></a><a href="images/husky-3.jpg" target="_blank"><img src="images/husky-3.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">CATIA V5</span><span class="tag">ROS / Gazebo</span><span class="tag">Kinematics</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/solar.jpg" alt="MPPT solar tracker" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Energy · Agritech</div>
+          <h3>MPPT Solar Tracking System</h3>
+          <p>Designed and built a sun-tracking solar rig with Maximum Power Point Tracking, aimed at powering agricultural water pumps. Tuned the tracking controller with Ziegler–Nichols PID.</p>
+          <div class="thumbs"><a href="images/solar.jpg" target="_blank"><img src="images/solar.jpg" alt=""></a><a href="images/solar-2.jpg" target="_blank"><img src="images/solar-2.jpg" alt=""></a><a href="images/solar-3.jpg" target="_blank"><img src="images/solar-3.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">CATIA V5</span><span class="tag">MPPT</span><span class="tag">Embedded</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/arm.jpg" alt="Parallel-mechanism robotic arm CAD" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Robotics · Kinematics</div>
+          <h3>Parallel-Mechanism Robotic Arm</h3>
+          <p>Modelled the arm and its workspace in CAD, built the DH table and solved forward and inverse kinematics in Python and MATLAB. Programmed it on Arduino to draw letters, then to translate sign-language gestures.</p>
+          <div class="thumbs"><a href="images/arm.jpg" target="_blank"><img src="images/arm.jpg" alt=""></a><a href="images/arm-2.jpg" target="_blank"><img src="images/arm-2.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">DH parameters</span><span class="tag">Forward/inverse kinematics</span><span class="tag">Python</span><span class="tag">Arduino</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/composites.jpg" alt="Glass fibre laminate layup" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Materials · Lab</div>
+          <h3>Glass-Fibre / Epoxy Laminates</h3>
+          <p>Hand-laid glass-fibre/epoxy laminates in four stacking sequences ([0]₄, [0/90]ₛ, [90/0]ₛ, [90]₄), cut test samples, tensile-tested them and compared the results with classical laminate theory.</p>
+          <div class="thumbs"><a href="images/composites.jpg" target="_blank"><img src="images/composites.jpg" alt=""></a><a href="images/composites-2.jpg" target="_blank"><img src="images/composites-2.jpg" alt=""></a><a href="images/composites-3.jpg" target="_blank"><img src="images/composites-3.jpg" alt=""></a></div>
+          <div class="tags"><span class="tag">Composites</span><span class="tag">Laminate theory</span><span class="tag">Tensile testing</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/orc.jpg" alt="Organic Rankine Cycle concept" onerror="this.remove()">
+        <div class="body">
+          <div class="cat mono">Thermal · Independent research</div>
+          <h3>ORC Waste-Heat Recovery</h3>
+          <p>Researching a compact closed-loop Organic Rankine Cycle that recovers exhaust heat from passenger cars to generate electricity.</p>
+          <div class="tags"><span class="tag">Thermodynamics</span><span class="tag">Heat recovery</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="sec-sub">Industrial internships in high-volume manufacturing.</p>
+
+    <div class="job">
+      <div class="when mono">Jul – Oct 2024</div>
+      <div>
+        <h3>Production &amp; Maintenance Intern</h3>
+        <div class="where">L'Oréal Cairo Plant · Cairo, Egypt</div>
+        <ul>
+          <li>Built an Autonomous Preventive Maintenance programme across <b>7 production lines</b>: inspected filler camshafts, chain and belt drives, and wrote inspection guides issued automatically through MaintainX CMMS, cutting unplanned downtime by <b>48%</b>.</li>
+          <li>Took part in commissioning a new production line, including LOTO procedures.</li>
+          <li>Led the weighing-room renovation: specified a shaking table and carts that removed heavy manual handling, and designed a quick-connect piping layout.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">Aug – Sep 2020</div>
+      <div>
+        <h3>Production &amp; Maintenance Intern</h3>
+        <div class="where">MEGA Food Industries (PepsiCo bottler) · Khartoum, Sudan</div>
+        <ul>
+          <li>Supported machine maintenance and production planning across bottling and packaging lines in a high-volume FMCG plant.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sec-sub">Tools I've used on real builds, not just in coursework.</p>
+    <div class="skills">
+      <div class="skill"><h4>CAD &amp; design</h4><p>CATIA V5 (Part Design, Assembly, GSD, Drafting), SolidWorks, technical drawing</p></div>
+      <div class="skill"><h4>Simulation</h4><p>Ansys Workbench: FEA (structural) and Fluent (CFD)</p></div>
+      <div class="skill"><h4>Controls &amp; modelling</h4><p>MATLAB, Simulink, PID / adaptive / fuzzy control</p></div>
+      <div class="skill"><h4>Automation</h4><p>Siemens TIA Portal, Ladder, Factory IO, commissioning, LOTO</p></div>
+      <div class="skill"><h4>Embedded &amp; code</h4><p>Arduino, ESP32, C++, Python, ROS / Gazebo</p></div>
+      <div class="skill"><h4>Prototyping</h4><p>3D printing, laser cutting, CNC operation, mould making</p></div>
+      <div class="skill"><h4>Maintenance</h4><p>Preventive maintenance, CMMS (MaintainX), root-cause analysis</p></div>
+      <div class="skill"><h4>Data</h4><p>SQL, R, Excel, Google Data Analytics &amp; BI certificates</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap two">
+    <div>
+      <h2>Education</h2>
+      <ul class="list">
+        <li><b>B.Eng. (Hons) Mechanical Engineering and Mechatronics, Upper Second Class (2:1)</b><span>University of Hertfordshire, delivered at GAF, Cairo · 2022 – 2025</span></li>
+        <li><b>Mechanical Engineering, first year</b><span>University of Khartoum · studies interrupted by COVID-19 and the 2021 closures</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Certifications</h2>
+      <ul class="list">
+        <li><b>Engineer in Training (EIT), NCEES FE Mechanical</b><span>April 2026</span></li>
+        <li><b>Finite Element Analysis Workshop</b><span>University of Hertfordshire · 2024</span></li>
+        <li><b>CNC Operation</b><span>AOI · 2023</span></li>
+        <li><b>Car Assembly, QC &amp; Maintenance</b><span>Arab American Vehicle Co. · 2023</span></li>
+        <li><b>Google Data Analytics · Business Intelligence</b><span>2024</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's build something</h2>
+    <p>Looking for mechanical design, R&amp;D or alternance roles in aerospace, defence and industrial equipment, ideally around Bordeaux.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn primary" href="mailto:jamal.mohamedain@gmail.com">jamal.mohamedain@gmail.com</a>
+      <a class="btn ghost" href="CV_Jamal_Mohamedain_Ingenieur_Mecanique.pdf">Download CV</a>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Jamal Mohamedain</footer>
+
+</body>
+</html>
